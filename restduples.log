@@ -1,0 +1,304 @@
+
+Request of client:
+
+Method = GET
+URL(user_id) = /1/2
+Proto = HTTP/1.1
+Header["Content-Type"] = ["application/x-www-form-urlencoded"]
+Header["Accept-Encoding"] = ["gzip"]
+Header["User-Agent"] = ["Go-http-client/1.1"]
+Host = "localhost:12345"
+RemoteAddr = "127.0.0.1:56648"
+buf:  /1/2
+stack:  /1/2
+Userid1 = 1
+Userid2 = 2
+
+Request of client:
+
+Method = GET
+URL(user_id) = /1/3
+Proto = HTTP/1.1
+Header["User-Agent"] = ["Go-http-client/1.1"]
+Header["Content-Type"] = ["application/x-www-form-urlencoded"]
+Header["Accept-Encoding"] = ["gzip"]
+Host = "localhost:12345"
+RemoteAddr = "127.0.0.1:56651"
+buf:  /1/3
+stack:  /1/3
+Userid1 = 1
+Userid2 = 3
+Status = 200 OK
+0.44s Time of request
+
+Duples: true
+
+Request of client:
+
+Method = GET
+URL(user_id) = /2/1
+Proto = HTTP/1.1
+Header["User-Agent"] = ["Go-http-client/1.1"]
+Header["Content-Type"] = ["application/x-www-form-urlencoded"]
+Header["Accept-Encoding"] = ["gzip"]
+Host = "localhost:12345"
+RemoteAddr = "127.0.0.1:56654"
+buf:  /2/1
+stack:  /2/1
+Userid1 = 2
+Userid2 = 1
+Status = 200 OK
+0.40s Time of request
+
+Duples: true
+
+Request of client:
+
+Method = GET
+URL(user_id) = /2/3
+Proto = HTTP/1.1
+Header["User-Agent"] = ["Go-http-client/1.1"]
+Header["Content-Type"] = ["application/x-www-form-urlencoded"]
+Header["Accept-Encoding"] = ["gzip"]
+Host = "localhost:12345"
+RemoteAddr = "127.0.0.1:56657"
+buf:  /2/3
+stack:  /2/3
+Userid1 = 2
+Userid2 = 3
+Status = 200 OK
+0.43s Time of request
+
+Duples: true
+
+Request of client:
+
+Method = GET
+URL(user_id) = /3/2
+Proto = HTTP/1.1
+Header["User-Agent"] = ["Go-http-client/1.1"]
+Header["Content-Type"] = ["application/x-www-form-urlencoded"]
+Header["Accept-Encoding"] = ["gzip"]
+Host = "localhost:12345"
+RemoteAddr = "127.0.0.1:56660"
+buf:  /3/2
+stack:  /3/2
+Userid1 = 3
+Userid2 = 2
+Status = 200 OK
+0.44s Time of request
+
+Duples: true
+
+Request of client:
+
+Method = GET
+URL(user_id) = /1/4
+Proto = HTTP/1.1
+Header["User-Agent"] = ["Go-http-client/1.1"]
+Header["Content-Type"] = ["application/x-www-form-urlencoded"]
+Header["Accept-Encoding"] = ["gzip"]
+Host = "localhost:12345"
+RemoteAddr = "127.0.0.1:56663"
+buf:  /1/4
+stack:  /1/4
+Userid1 = 1
+Userid2 = 4
+Status = 200 OK
+0.40s Time of request
+
+Duples: true
+
+Request of client:
+
+Method = GET
+URL(user_id) = /3/4
+Proto = HTTP/1.1
+Header["User-Agent"] = ["Go-http-client/1.1"]
+Header["Content-Type"] = ["application/x-www-form-urlencoded"]
+Header["Accept-Encoding"] = ["gzip"]
+Host = "localhost:12345"
+RemoteAddr = "127.0.0.1:56666"
+buf:  /3/4
+stack:  /3/4
+Userid1 = 3
+Userid2 = 4
+Status = 200 OK
+0.41s Time of request
+
+Duples: true
+
+Request of client:
+
+Method = GET
+URL(user_id) = /4/2
+Proto = HTTP/1.1
+Header["User-Agent"] = ["Go-http-client/1.1"]
+Header["Content-Type"] = ["application/x-www-form-urlencoded"]
+Header["Accept-Encoding"] = ["gzip"]
+Host = "localhost:12345"
+RemoteAddr = "127.0.0.1:56669"
+buf:  /4/2
+stack:  /4/2
+Userid1 = 4
+Userid2 = 2
+Status = 200 OK
+0.47s Time of request
+
+Duples: true
+Status = 200 OK
+0.44s Time of request
+
+Duples: true
+
+Request of client:
+
+Method = GET
+URL(user_id) = /1/2
+Proto = HTTP/1.1
+Header["User-Agent"] = ["Go-http-client/1.1"]
+Header["Content-Type"] = ["application/x-www-form-urlencoded"]
+Header["Accept-Encoding"] = ["gzip"]
+Host = "localhost:12345"
+RemoteAddr = "127.0.0.1:56672"
+buf:  /1/2
+stack:  /1/2
+Userid1 = 1
+Userid2 = 2
+
+Request of client:
+
+Method = GET
+URL(user_id) = /1/3
+Proto = HTTP/1.1
+Header["User-Agent"] = ["Go-http-client/1.1"]
+Header["Content-Type"] = ["application/x-www-form-urlencoded"]
+Header["Accept-Encoding"] = ["gzip"]
+Host = "localhost:12345"
+RemoteAddr = "127.0.0.1:56675"
+buf:  /1/3
+stack:  /1/3
+Userid1 = 1
+Userid2 = 3
+Status = 200 OK
+0.50s Time of request
+
+Duples: true
+
+Request of client:
+
+Method = GET
+URL(user_id) = /2/1
+Proto = HTTP/1.1
+Header["Accept-Encoding"] = ["gzip"]
+Header["User-Agent"] = ["Go-http-client/1.1"]
+Header["Content-Type"] = ["application/x-www-form-urlencoded"]
+Host = "localhost:12345"
+RemoteAddr = "127.0.0.1:56678"
+buf:  /2/1
+stack:  /2/1
+Userid1 = 2
+Userid2 = 1
+Status = 200 OK
+0.42s Time of request
+
+Duples: true
+
+Request of client:
+
+Method = GET
+URL(user_id) = /2/3
+Proto = HTTP/1.1
+Header["User-Agent"] = ["Go-http-client/1.1"]
+Header["Content-Type"] = ["application/x-www-form-urlencoded"]
+Header["Accept-Encoding"] = ["gzip"]
+Host = "localhost:12345"
+RemoteAddr = "127.0.0.1:56681"
+buf:  /2/3
+stack:  /2/3
+Userid1 = 2
+Userid2 = 3
+Status = 200 OK
+0.39s Time of request
+
+Duples: true
+
+Request of client:
+
+Method = GET
+URL(user_id) = /3/2
+Proto = HTTP/1.1
+Header["User-Agent"] = ["Go-http-client/1.1"]
+Header["Content-Type"] = ["application/x-www-form-urlencoded"]
+Header["Accept-Encoding"] = ["gzip"]
+Host = "localhost:12345"
+RemoteAddr = "127.0.0.1:56684"
+buf:  /3/2
+stack:  /3/2
+Userid1 = 3
+Userid2 = 2
+Status = 200 OK
+0.44s Time of request
+
+Duples: true
+
+Request of client:
+
+Method = GET
+URL(user_id) = /1/4
+Proto = HTTP/1.1
+Header["Content-Type"] = ["application/x-www-form-urlencoded"]
+Header["Accept-Encoding"] = ["gzip"]
+Header["User-Agent"] = ["Go-http-client/1.1"]
+Host = "localhost:12345"
+RemoteAddr = "127.0.0.1:56687"
+buf:  /1/4
+stack:  /1/4
+Userid1 = 1
+Userid2 = 4
+Status = 200 OK
+0.42s Time of request
+
+Duples: true
+
+Request of client:
+
+Method = GET
+URL(user_id) = /3/4
+Proto = HTTP/1.1
+Header["User-Agent"] = ["Go-http-client/1.1"]
+Header["Content-Type"] = ["application/x-www-form-urlencoded"]
+Header["Accept-Encoding"] = ["gzip"]
+Host = "localhost:12345"
+RemoteAddr = "127.0.0.1:56690"
+buf:  /3/4
+stack:  /3/4
+Userid1 = 3
+Userid2 = 4
+Status = 200 OK
+0.45s Time of request
+
+Duples: true
+
+Request of client:
+
+Method = GET
+URL(user_id) = /4/2
+Proto = HTTP/1.1
+Header["User-Agent"] = ["Go-http-client/1.1"]
+Header["Content-Type"] = ["application/x-www-form-urlencoded"]
+Header["Accept-Encoding"] = ["gzip"]
+Host = "localhost:12345"
+RemoteAddr = "127.0.0.1:56693"
+buf:  /4/2
+stack:  /4/2
+Userid1 = 4
+Userid2 = 2
+Status = 200 OK
+0.42s Time of request
+
+Duples: true
+Status = 200 OK
+0.51s Time of request
+
+Duples: true
