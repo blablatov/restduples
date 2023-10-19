@@ -21,7 +21,6 @@ import (
 var (
 	crtFile = filepath.Join(".", "certs", "server.crt")
 	keyFile = filepath.Join(".", "certs", "server.key")
-	mu      sync.Mutex
 )
 
 func main() {
@@ -66,16 +65,16 @@ func handle(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("stack: ", top)
 
 	// Формирование структуры с user_id
-	mu.Lock()
+	var u sl.UserId
+	u.Mu.Lock()
 	sr := sl.UserId{
 		Userid1: ps[1],
 		Userid2: ps[3],
 	}
-	mu.Unlock()
+	u.Mu.Unlock()
 	fmt.Printf("Userid1 = %s\nUserid2 = %s\n", sr.Userid1, sr.Userid2)
 
 	// Вызов метода выполнения запроса к СУБД ClickHouse
-	var u sl.UserId
 	var wg sync.WaitGroup
 	chb := make(chan bool, 1)
 	wg.Add(1)

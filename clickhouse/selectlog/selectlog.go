@@ -21,7 +21,7 @@ import (
 type UserId struct {
 	Userid1 string
 	Userid2 string
-	mu      sync.Mutex
+	Mu      sync.Mutex
 }
 
 // Файл сертификата
