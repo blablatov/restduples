@@ -57,10 +57,10 @@ func (u *UserId) SelectLog(Userid1, Userid2 string, chb chan bool, wg sync.WaitG
 
 	// Демо версия с константными запросами
 	var duplesGet string
-	u.mu.Lock()
+	u.Mu.Lock()
 	usid := []string{Userid1, Userid2}
 	userid := strings.Join(usid, "-")
-	u.mu.Unlock()
+	u.Mu.Unlock()
 
 	switch userid {
 	case "1-2":
