@@ -1,7 +1,7 @@
 // Модульное (unit) тестирование клиента.
 // Определены тестовые сигнатуры реальных методов клиента.
 // Объявлены тестовые типы соответствующие интерфейсу, как его экземпляры.
-// go test -v client_unit_test.go
+// go test -v client-unit_test.go
 
 package main
 
@@ -140,7 +140,9 @@ func TestNewRequest(t *testing.T) {
 			wantExists: false,
 		},
 	}
+
 	var f TestClient
+
 	for _, tt := range tests {
 		t.Run(tt.method, func(t *testing.T) {
 			gotExists, gotErr := f.NewRequest("GET", "apiUrl", nil)
@@ -158,7 +160,7 @@ func (tс *TestClient) Do(interface{}) (interface{}, error) {
 	if tс.success {
 		return nil, nil
 	}
-	return nil, fmt.Errorf("This is a test error")
+	return nil, fmt.Errorf("Do test error")
 }
 
 func TestDo(t *testing.T) {
@@ -187,15 +189,66 @@ func TestDo(t *testing.T) {
 			wantExists: false,
 		},
 	}
+
 	var f TestClient
+
 	for _, tt := range tests {
 		t.Run(tt.request, func(t *testing.T) {
 			gotExists, gotErr := f.Do(tt.args.do)
 			if reflect.DeepEqual(gotExists, tt.wantExists) {
-				t.Errorf("Check func NewRequest() gotExists = %v, want %v", gotExists, tt.wantExists)
+				t.Errorf("Check func Do() gotExists = %v, want %v", gotExists, tt.wantExists)
 			}
 			if reflect.DeepEqual(gotErr, tt.wantErr) {
-				t.Errorf("Check func NewRequest() gotErr = %v, want %v", gotErr, tt.wantErr)
+				t.Errorf("Check func Do() gotErr = %v, want %v", gotErr, tt.wantErr)
+			}
+		})
+	}
+}
+
+func (tс *TestClient) ReadAll(interface{}) (interface{}, error) {
+	if tс.success {
+		return nil, nil
+	}
+	return nil, fmt.Errorf("ReadAll test error")
+}
+
+func TestReadAll(t *testing.T) {
+	type args struct {
+		rall Clienter
+	}
+	tests := []struct {
+		read       string
+		args       args
+		wantErr    error
+		wantExists bool
+	}{
+		{
+			read: "read exists",
+			args: args{
+				rall: &TestClient{success: true},
+			},
+			wantErr:    nil,
+			wantExists: true,
+		}, {
+			read: "read not exists",
+			args: args{
+				rall: &TestClient{success: false},
+			},
+			wantErr:    fmt.Errorf("read do test error"),
+			wantExists: false,
+		},
+	}
+
+	var f TestClient
+
+	for _, tt := range tests {
+		t.Run(tt.read, func(t *testing.T) {
+			gotExists, gotErr := f.ReadAll(tt.args.rall)
+			if reflect.DeepEqual(gotExists, tt.wantExists) {
+				t.Errorf("Check func ReadAll() gotExists = %v, want %v", gotExists, tt.wantExists)
+			}
+			if reflect.DeepEqual(gotErr, tt.wantErr) {
+				t.Errorf("Check func ReadAll() gotErr = %v, want %v", gotErr, tt.wantErr)
 			}
 		})
 	}

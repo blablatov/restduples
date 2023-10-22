@@ -26,7 +26,7 @@ type UserId struct {
 
 // Файл сертификата
 var (
-	crtFile = filepath.Join(".", "certs", "YandexInternalRootCA.crt")
+	crtFile = filepath.Join("..", "certs", "YandexInternalRootCA.crt")
 )
 
 // Метод подключения, аутентификации, выполнения запроса к БД duples
