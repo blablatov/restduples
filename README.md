@@ -16,9 +16,15 @@
 	PRIMARY KEY (user_id)`
 	
 
-### Заполнение таблицы данными SQL запросом.     
+### Заполнение таблицы данными SQL запросом:       
 	go run insertlog.go  
-	
+
+### Генератор строк записей таблицы (conn_log). 
+Ключ `1000000` число итераций основного цикла.  
+Общее количество строк, определяется простым подбором ключа:      	
+	go build gendtables.go  
+	gendtables 1000000
+		
 ### Заполнение таблицы посредством сгенеренного .cvs файла:
 	clickhouse-client -q "INSERT INTO conn_log FORMAT CSV" < conn_log.csv 
 	
