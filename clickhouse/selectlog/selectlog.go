@@ -10,8 +10,6 @@ import (
 	"log"
 	"net/http"
 	"path/filepath"
-
-	//"strconv"
 	"strings"
 	"sync"
 	"time"
@@ -39,21 +37,6 @@ func (u *UserId) SelectLog(Userid1, Userid2 string, chb chan bool, wg sync.WaitG
 	const DB_NAME = "duples"
 	const DB_USER = "gorest"
 	const DB_PASS = "rootroot"
-
-	// Преобразование строковых типов в uint32 для запроса
-	// u.mu.Lock()
-	// usid1, err := strconv.Atoi(Userid1)
-	// usid2, err := strconv.Atoi(Userid2)
-	// uid1 := uint32(usid1)
-	// uid2 := uint32(usid2)
-	// u.mu.Unlock()
-	// fmt.Printf("uid1 = %d\nuid2 = %d\n", uid1, uid2)
-
-	// TODO при использовании в запросе переменных. В ClicHouse не понятно как.
-	// Функциональный SQL запрос для получения дублей из БД.
-	//duplesGet := `SELECT ip_addr, COUNT(*) FROM duples.conn_log WHERE user_id = $uid1 OR user_id = $uid2 GROUP BY ip_addr HAVING COUNT (*) > 1`
-	//duplesGet := `SELECT ip_addr, COUNT(*) FROM duples.conn_log WHERE user_id = 1 OR user_id = 2 GROUP BY ip_addr HAVING COUNT (*) > 1`
-	//duplesGet := `WITH 'usid1' AS user_id, 'usid2' AS a SELECT b, COUNT(*) FROM duples.conn_log WHERE user_id = a OR user_id = b GROUP BY ip_addr HAVING COUNT (*) > 1`
 
 	// Демо версия с константными запросами
 	var duplesGet string
