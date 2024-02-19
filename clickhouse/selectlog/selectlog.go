@@ -24,7 +24,7 @@ type UserId struct {
 
 // Файл сертификата
 var (
-	crtFile = filepath.Join("..", "certs", "YandexInternalRootCA.crt")
+	crtFile = filepath.Join(".", "certs", "YandexInternalRootCA.crt")
 )
 
 // Метод подключения, аутентификации, выполнения запроса к БД duples
@@ -38,33 +38,8 @@ func (u *UserId) SelectLog(Userid1, Userid2 string, chb chan bool, wg sync.WaitG
 	const DB_USER = "gorest"
 	const DB_PASS = "rootroot"
 
-	// Демо версия с константными запросами
-	var duplesGet string
-	u.Mu.Lock()
-	usid := []string{Userid1, Userid2}
-	userid := strings.Join(usid, "-")
-	u.Mu.Unlock()
-
-	switch userid {
-	case "1-2":
-		duplesGet = `SELECT ip_addr, COUNT(*) FROM duples.conn_log WHERE user_id = 1 OR user_id = 2 GROUP BY ip_addr HAVING COUNT (*) > 1`
-	case "1-3":
-		duplesGet = `SELECT ip_addr, COUNT(*) FROM duples.conn_log WHERE user_id = 1 OR user_id = 3 GROUP BY ip_addr HAVING COUNT (*) > 1`
-	case "2-1":
-		duplesGet = `SELECT ip_addr, COUNT(*) FROM duples.conn_log WHERE user_id = 2 OR user_id = 1 GROUP BY ip_addr HAVING COUNT (*) > 1`
-	case "2-3":
-		duplesGet = `SELECT ip_addr, COUNT(*) FROM duples.conn_log WHERE user_id = 2 OR user_id = 3 GROUP BY ip_addr HAVING COUNT (*) > 1`
-	case "3-2":
-		duplesGet = `SELECT ip_addr, COUNT(*) FROM duples.conn_log WHERE user_id = 3 OR user_id = 2 GROUP BY ip_addr HAVING COUNT (*) > 1`
-	case "1-4":
-		duplesGet = `SELECT ip_addr, COUNT(*) FROM duples.conn_log WHERE user_id = 1 OR user_id = 4 GROUP BY ip_addr HAVING COUNT (*) > 1`
-	case "3-4":
-		duplesGet = `SELECT ip_addr, COUNT(*) FROM duples.conn_log WHERE user_id = 3 OR user_id = 4 GROUP BY ip_addr HAVING COUNT (*) > 1`
-	case "4-2":
-		duplesGet = `SELECT ip_addr, COUNT(*) FROM duples.conn_log WHERE user_id = 4 OR user_id = 2 GROUP BY ip_addr HAVING COUNT (*) > 1`
-	default:
-		log.Println("Error of response")
-	}
+	// Тип запроса select
+	duplesGet := `SELECT ip_addr, COUNT(*) FROM duples.conn_log WHERE ` + Userid1 + ` OR ` + Userid2 + ` GROUP BY ip_addr HAVING COUNT (*) > 1`
 
 	// Чтение сертификата из файла. Формирование метаданных запроса
 	caCert, err := ioutil.ReadFile(crtFile)

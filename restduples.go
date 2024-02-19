@@ -1,7 +1,7 @@
 // Тестовый вебсервер для отладки REST запросов.
 // Метода выполнения запроса к СУБД ClickHouse Yandex Cloud
-// go run restduples.go
-// go test -v client_test.go
+// go build . && go run .
+// go test -v ./client/client_test.go
 
 package main
 
@@ -24,11 +24,12 @@ var (
 )
 
 func main() {
-	log.SetPrefix("Event main: ")
+	log.SetPrefix("Event server: ")
 	log.SetFlags(log.Lshortfile)
 
 	// TLS or simple connect. Подключение TLS или базовое
 	http.HandleFunc("/", handle)
+	LogInfo("Server listening on localhost:12345")
 	http.ListenAndServeTLS("localhost:12345", crtFile, keyFile, nil)
 	//http.ListenAndServe("localhost:12345", nil)
 }
@@ -86,4 +87,11 @@ func handle(w http.ResponseWriter, r *http.Request) {
 		wg.Wait()
 		close(chb)
 	}()
+}
+
+var logger = log.Default()
+
+func LogInfo(format string, v ...any) {
+	msg := fmt.Sprintf(format, v...)
+	logger.Printf("[Info]: %s\n", msg)
 }

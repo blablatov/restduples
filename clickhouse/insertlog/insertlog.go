@@ -15,7 +15,7 @@ import (
 
 // Файл сертификата. Структура запроса
 var (
-	crtFile = filepath.Join("..", "certs", "YandexInternalRootCA.crt")
+	crtFile = filepath.Join(".", "certs", "YandexInternalRootCA.crt")
 	//insertLog = `INSERT INTO conn_log FROM INFILE 'con_log.csv' FORMAT CSV`
 	insertLog = `INSERT INTO conn_log (user_id, ip_addr, timestamp) VALUES (1, '127.0.0.1', '2023-10-15 00:00:00'), (2, '127.0.0.1', '2023-10-15 00:00:00'), (2, '127.0.0.3', '2023-10-15 00:00:00'), (1, '127.0.0.4', '2023-10-15 00:00:00'), (2, '127.0.0.2', '2023-10-15 00:00:00'), (2, '127.0.0.3', '2023-10-15 00:00:00'), (3, '127.0.0.3', '2023-10-15 00:00:00'), (3, '127.0.0.1', '2023-10-15 00:00:00'), (4, '127.0.0.1', '2023-10-15 00:00:00'), (1, '127.0.0.3', '2023-10-15 00:00:00')`
 )
