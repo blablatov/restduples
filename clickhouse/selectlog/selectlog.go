@@ -28,7 +28,7 @@ var (
 )
 
 // Метод подключения, аутентификации, выполнения запроса к БД duples
-func (u *UserId) SelectLog(Userid1, Userid2 string, chb chan bool, wg sync.WaitGroup) {
+func (u *UserId) SelectLog(Userid1, Userid2 string, chb chan bool, wg sync.WaitGroup) error {
 
 	defer wg.Done()
 
@@ -73,10 +73,9 @@ func (u *UserId) SelectLog(Userid1, Userid2 string, chb chan bool, wg sync.WaitG
 	// Выполнение запроса
 	resp, err := conn.Do(req)
 	if err != nil {
-		// Восстанавливается для анализа, после вывода err, завершается
-		p := recover()
-		log.Fatalln(err)
-		panic(p)
+		//log.Fatalln(err)
+		log.Println(err)
+		return err
 	}
 
 	// Отложеное выполнение закрытия запроса, до выполнения метода и получения ответа
@@ -101,4 +100,5 @@ func (u *UserId) SelectLog(Userid1, Userid2 string, chb chan bool, wg sync.WaitG
 		fmt.Println("\nDuples:", true)
 		chb <- true
 	}
+	return nil
 }
