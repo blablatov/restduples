@@ -13,7 +13,7 @@
     ip_addr IPv4,
     timestamp DateTime,
 	)
-	ENGINE = MergeTree
+	ENGINE = ReplacingMergeTree
 	PRIMARY KEY (user_id)`
 	
 
